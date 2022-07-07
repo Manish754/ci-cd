@@ -35,7 +35,7 @@ pipeline {
                  sh "docker rm -f ${JOB_NAME}"
                }
         }
-        stage("Push to Dockerhub") {
+        stage("Push to docker_hub") {
             steps {
                 script {
                     docker.withRegistry('', registryCredential ) {
