@@ -2,7 +2,7 @@ def image
 pipeline {
     environment {
         registry = "manish754/cicd"
-        registryCredential = 'Dokcer_hub'
+        registryCredential = 'docker-hub'
         dockerImage = ''
     }
     agent any
@@ -44,11 +44,11 @@ pipeline {
                 }
             }
         }
-        stage("running on dev-server") {
+        stage("running on pro-server") {
             steps{
                 script{
                      def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
-                     sshagent (['dev-server']){
+                     sshagent (['pro-server']){
                      sh "ssh -o StrictHostKeyChecking=no ubuntu@3.22.164.90 ${dockerRun}"
                      
                     }
