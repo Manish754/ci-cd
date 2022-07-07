@@ -50,8 +50,8 @@ pipeline {
                      def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
                      sshagent (['pro-server']){
                      sh "ssh -o StrictHostKeyChecking=no ubuntu@3.22.164.90 ${dockerRun}"
-                     sh "docker rm -f ${JOB_NAME}"
-                   
+                     
+                       
                     }
                 }
             }
