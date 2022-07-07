@@ -47,7 +47,7 @@ pipeline {
         stage("running on pro-server") {
             steps{
                 script{
-                     def dockerRun = "docker run -t -d --name ${JOB_NAME} -p 5000:5000 ${image}"
+                     def dockerRun = "docker run -d -it --name ${JOB_NAME} -p 5000:5000 ${image}"
                      sshagent (['pro-server']){
                      sh "ssh -o StrictHostKeyChecking=no ubuntu@3.22.164.90 ${dockerRun}"
                      
