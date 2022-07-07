@@ -1,5 +1,6 @@
 FROM python:3.8-slim-buster
 
+ADD ./ 
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
